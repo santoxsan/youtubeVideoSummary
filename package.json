@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "startLambda": "sam local start-lambda",
-    "local::HelloWorldFunction": "aws lambda invoke --function-name \"HelloWorldFunction\" --endpoint-url \"http://127.0.0.1:3001\" -e functions/getYoutubeCaption/events/event --no-verify-ssl out.txt",
+    "local::GetYoutubeCaption": "aws lambda invoke --function-name \"GetYoutubeCaption\" --payload file://functions/getYoutubeCaption/events/event.json --endpoint-url \"http://127.0.0.1:3001\" --cli-binary-format raw-in-base64-out --no-verify-ssl out.txt",
     "local::asflkasklfakl": "aws lambda invoke --function-name \"asflkasklfakl\" --endpoint-url \"http://127.0.0.1:3001\" --no-verify-ssl out.txt"
   },
   "repository": {

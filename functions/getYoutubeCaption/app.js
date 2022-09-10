@@ -1,6 +1,6 @@
 
 exports.lambdaHandler = async ({url}) => {
-    const url = 'https://www.yousubtitles.com/'
+    console.log("🚀 ~ file: app.js ~ line 21 ~ exports.lambdaHandler= ~ data")
     const response= await fetch(url, {
         method: 'POST',
         headers: {
@@ -19,5 +19,6 @@ exports.lambdaHandler = async ({url}) => {
     })
     const data = await response.text()
     console.log("🚀 ~ file: app.js ~ line 21 ~ exports.lambdaHandler= ~ data", data)
+
     return response
 };
