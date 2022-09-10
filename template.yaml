@@ -19,7 +19,7 @@ Resources:
       CodeUri: functions/getYoutubeCaption/
       Handler: app.lambdaHandler
       Runtime: nodejs16.x
-  summaryTest:
+  SummaryTest:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: functions/summaryTest/
