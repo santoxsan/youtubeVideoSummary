@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/santoxsan/youtubeVideoSummary/issues"
   },
-  "homepage": "https://github.com/santoxsan/youtubeVideoSummary#readme"
+  "homepage": "https://github.com/santoxsan/youtubeVideoSummary#readme",
+  "dependencies": {
+    "node-fetch": "3.2.10"
+  }
 }
