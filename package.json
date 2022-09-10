@@ -1,0 +1,22 @@
+{
+  "name": "youtubeVideoSummary",
+  "version": "1.0.0",
+  "description": "This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.",
+  "main": "index.js",
+  "scripts": {
+    "startLambda": "sam local start-lambda",
+    "local::HelloWorldFunction": "aws lambda invoke --function-name \"HelloWorldFunction\" --endpoint-url \"http://127.0.0.1:3001\" -e functions/getYoutubeCaption/events/event --no-verify-ssl out.txt",
+    "local::asflkasklfakl": "aws lambda invoke --function-name \"asflkasklfakl\" --endpoint-url \"http://127.0.0.1:3001\" --no-verify-ssl out.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santoxsan/youtubeVideoSummary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santoxsan/youtubeVideoSummary/issues"
+  },
+  "homepage": "https://github.com/santoxsan/youtubeVideoSummary#readme"
+}
