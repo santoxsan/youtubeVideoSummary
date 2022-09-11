@@ -6,6 +6,7 @@
   "scripts": {
     "startLambda": "sam local start-lambda",
     "local::GetYoutubeCaption": "aws lambda invoke --function-name \"GetYoutubeCaption\" --payload file://functions/getYoutubeCaption/events/event.json --endpoint-url \"http://127.0.0.1:3001\" --cli-binary-format raw-in-base64-out --no-verify-ssl out.txt",
+    "local::SummaryTest": "aws lambda invoke --function-name \"SummaryTest\" --payload file://functions/SummaryTest/events/event.json --endpoint-url \"http://127.0.0.1:3001\" --cli-binary-format raw-in-base64-out --no-verify-ssl out.txt",
     "local::asflkasklfakl": "aws lambda invoke --function-name \"asflkasklfakl\" --endpoint-url \"http://127.0.0.1:3001\" --no-verify-ssl out.txt"
   },
   "repository": {
@@ -18,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/santoxsan/youtubeVideoSummary/issues"
   },
-  "homepage": "https://github.com/santoxsan/youtubeVideoSummary#readme",
-  "dependencies": {
-    "node-fetch": "3.2.10"
-  }
+  "homepage": "https://github.com/santoxsan/youtubeVideoSummary#readme"
 }

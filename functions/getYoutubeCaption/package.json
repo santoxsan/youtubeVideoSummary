@@ -7,9 +7,8 @@
   "author": "SAM CLI",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1"
+    "node-fetch": "3.2.10"
   },
-  "scripts": {
-  }
-
+  "scripts": {},
+  "keywords": []
 }
