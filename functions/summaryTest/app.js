@@ -1,11 +1,13 @@
 
 const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-  apiKey: "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",
-});
-const openai = new OpenAIApi(configuration);
+
 
 exports.lambdaHandler = async (event) => {
+
+  const configuration = new Configuration({
+    apiKey: event.openaiAccesKey,
+  });
+  const openai = new OpenAIApi(configuration);
     const response = await openai.createCompletion({
   model: "text-davinci-002",
   prompt: event.message,
