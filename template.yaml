@@ -24,7 +24,3 @@ Resources:
       CodeUri: functions/summaryTest/
       Handler: app.lambdaHandler
       Runtime: nodejs16.x
-
-Outputs:
-    Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt HelloWorldFunctionRole.Arn
