@@ -5,7 +5,8 @@ export const lambdaHandler = async ({url, openaiAccesKey,isLongSummary}) => {
 
     const { id } = await getContext(url);
     const { subtitles } = await getCaptionOptions(id);
-    const caption = await getCaption(subtitles[0].url);
-
-    return { message:caption,openaiAccesKey,isLongSummary}
+    const firstSubtitles=subtitles[0]
+    const caption = await getCaption(firstSubtitles.url);
+    const countryCode = firstSubtitles.code.match(/(es)/) ? 'es' : 'en';
+    return { message:caption, openaiAccesKey, countryCode, isLongSummary}
 };
