@@ -4,7 +4,7 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const choosePrompt=(countryCode, isLongSummary, message)=>{
     if(countryCode === "es"){
-        return `Hacer un resumen ${isLongSummary} del siguiente texto:\n${message}\n\nEl ${isLongSummary} resumen del texto es:`
+        return `Hacer un resumen ${isLongSummary} del siguiente texto:\n${message}\n\nEl resumen ${isLongSummary} del texto es:`
     } 
     else if (countryCode==="en"){
         return `Make a ${isLongSummary} summary of the next text:\n${message}\n\nThe ${isLongSummary} summary is:`
