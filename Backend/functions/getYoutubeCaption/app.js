@@ -1,7 +1,7 @@
 
 import { getContext, getCaptionOptions, getCaption } from './services.js';
 
-export const lambdaHandler = async ({url, openaiAccesKey,isLongSummary}) => {
+export const lambdaHandler = async ({url, openaiAccesKey, isLongSummary}) => {
 
     const { id } = await getContext(url);
     const { subtitles } = await getCaptionOptions(id);
