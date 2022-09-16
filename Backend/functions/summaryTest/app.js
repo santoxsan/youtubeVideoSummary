@@ -7,14 +7,14 @@ const choosePrompt=(countryCode, isLongSummary, message)=>{
         const texto = isLongSummary == 'short' ? "corto" : "largo";
         return `Hacer un resumen ${texto} del siguiente texto:\n${message}\n\nEl resumen ${texto} del texto es:`
     } 
-    else if (countryCode==="en"){
+    else if (countryCode === "en"){
         return `Make a ${isLongSummary} summary of the next text:\n${message}\n\nThe ${isLongSummary} summary is:`
     }
 
     throw new Error("Country code not supported")
 }
 
-exports.lambdaHandler = async ({isLongSummary,openaiAccesKey,message, countryCode}) => {
+exports.lambdaHandler = async ({isLongSummary, openaiAccesKey, message, countryCode}) => {
 
   const configuration = new Configuration({
     apiKey: openaiAccesKey,

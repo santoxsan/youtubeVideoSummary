@@ -5,7 +5,7 @@ EjecutarAnalisis = async (isLongSummary) => {
       method: 'POST',
       body:JSON.stringify({
         input: 
-          `{"url":"${window.location.href}","openaiAccesKey":"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"},"isLongSummary":"${isLongSummary}"`,
+          `{"url":"${window.location.href}","openaiAccesKey":"YOUR_API_KEY","isLongSummary":"${isLongSummary}"}`,
         stateMachineArn:
           'arn:aws:states:sa-east-1:750741739043:stateMachine:YoutubeVideoSummary',
       }) ,
