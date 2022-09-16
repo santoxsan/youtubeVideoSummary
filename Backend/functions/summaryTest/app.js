@@ -18,9 +18,9 @@ exports.lambdaHandler = async ({isLongSummary,openaiAccesKey,message, countryCod
   const configuration = new Configuration({
     apiKey: openaiAccesKey,
   });
+  const openai = new OpenAIApi(configuration);
 
   const prompt= choosePrompt(countryCode, isLongSummary, message);
-
   const response = await openai.createCompletion({
   model: "text-davinci-002",
   prompt,

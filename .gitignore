@@ -1,0 +1,3 @@
+# ignore all .aws folder
+
+Backend/.aws-sam/*
