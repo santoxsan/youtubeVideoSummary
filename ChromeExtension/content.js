@@ -3,15 +3,17 @@ EjecutarAnalisis = async (isLongSummary) => {
     'https://5kqxnlooj7.execute-api.sa-east-1.amazonaws.com/Prod/',
     {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body:JSON.stringify({
         url: window.location.href,
-        openaiAccessKey: "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",
+        openaiAccessKey:localStorage.getItem('openaiAccessKey'),
         isLongSummary
       }) ,
     }
   );
 };
-let done;
 setInterval((x) => {
     try {
      const selectShort = document.querySelectorAll(
