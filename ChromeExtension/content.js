@@ -6,7 +6,7 @@ EjecutarAnalisis = async (isLongSummary) => {
       body:JSON.stringify({
         url: window.location.href,
         openaiAccessKey: "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",
-        isLongSummary:"${isLongSummary}"
+        isLongSummary
       }) ,
     }
   );
