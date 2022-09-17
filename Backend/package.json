@@ -8,8 +8,8 @@
     "local::GetYoutubeCaption": "aws lambda invoke --function-name \"GetYoutubeCaption\" --payload file://functions/getYoutubeCaption/events/event.json --endpoint-url \"http://127.0.0.1:3001\" --cli-binary-format raw-in-base64-out --no-verify-ssl out.txt",
     "local::SummaryTest": "aws lambda invoke --function-name \"SummaryTest\" --payload file://functions/SummaryTest/events/events.json --endpoint-url \"http://127.0.0.1:3001\" --cli-binary-format raw-in-base64-out --no-verify-ssl out.txt",
     "local::asflkasklfakl": "aws lambda invoke --function-name \"asflkasklfakl\" --endpoint-url \"http://127.0.0.1:3001\" --no-verify-ssl out.txt",
-    "deploy": "sam sync --stack-name \"youtubevideosummary\" --profile youtubeSummary",
-    "watch": "sam sync --stack-name \"youtubevideosummary\" --watch --profile youtubeSummary"
+    "deploy": "sam sync --stack-name \"youtubevideosummary\" --profile youtubeSummary --parameter-overrides Email=YOUR_EMAIL_HERE",
+    "watch": "sam sync --stack-name \"youtubevideosummary\" --watch --profile youtubeSummary --parameter-overrides Email=YOUR_EMAIL_HERE"
   },
   "repository": {
     "type": "git",
