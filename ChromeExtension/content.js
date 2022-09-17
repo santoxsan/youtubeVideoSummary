@@ -1,13 +1,12 @@
 EjecutarAnalisis = async (isLongSummary) => {
  await fetch(
-    'https://pqpxc42ao8.execute-api.sa-east-1.amazonaws.com/prod/summaryapi',
+    'https://5kqxnlooj7.execute-api.sa-east-1.amazonaws.com/Prod/',
     {
       method: 'POST',
       body:JSON.stringify({
-        input: 
-          `{"url":"${window.location.href}","openaiAccesKey":"YOUR_API_KEY","isLongSummary":"${isLongSummary}"}`,
-        stateMachineArn:
-          'arn:aws:states:sa-east-1:750741739043:stateMachine:YoutubeVideoSummary',
+        url: window.location.href,
+        openaiAccessKey: "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",
+        isLongSummary
       }) ,
     }
   );
