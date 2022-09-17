@@ -1,26 +1,80 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  lambda-nodejs16.x
-
-  Sample SAM Template for lambda-nodejs16.x
-  
+Description:  'AWS SAM template for the backend of the serverless application'
+Parameters:
+  Email:
+    Type: String
+    Description: Email address for the admin user
 Globals:
   Function:
     Timeout: 30
     Architectures:
       - x86_64
-
 Resources:
   GetYoutubeCaption:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: functions/getYoutubeCaption/
       Handler: app.lambdaHandler
-      Runtime: nodejs16.x
+      Runtime: nodejs16.x        
   SummaryTest:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: functions/summaryTest/
       Handler: app.lambdaHandler
       Runtime: nodejs16.x
+  SnsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: 'youtube-summary-email'
+      DisplayName: 'Youtube Summary'
+      Subscription:
+        - Endpoint: !Ref Email
+          Protocol: 'email'
+  StateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      Name: YoutubeSummary
+      DefinitionUri: stateMachine/definition.json
+      Role: !GetAtt StateMachineRole.Arn
+      DefinitionSubstitutions:
+        GetYoutubeCaption: !GetAtt GetYoutubeCaption.Arn
+        SummaryTest: !GetAtt SummaryTest.Arn
+        SnsTopic: !Ref SnsTopic
+      Events:
+        SummarizeApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: POST
+  StateMachineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - states.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: !Sub ${AWS::StackName}-StateMachine
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'lambda:InvokeFunction'
+                  - 'sns:Publish'
+                Resource: '*'
+
+Outputs:
+  StateMachineApi:
+    Description: "API Gateway endpoint URL for Prod stage for State Machine"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Export:
+      Name: !Sub "${AWS::StackName}-StateMachineApi"
+
+
