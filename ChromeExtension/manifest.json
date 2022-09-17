@@ -2,6 +2,15 @@
     "name":"YoutubeSummariser",
     "manifest_version":2,
     "version":"1.0",
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16":"./iconoderesumen.png",
+        "32":"./iconoderesumen.png",
+        "48":"./iconoderesumen.png",
+        "128":"./iconoderesumen.png"
+      }
+    },
     "content_scripts": [
       {
         "matches": ["https://www.youtube.com/*"],
@@ -12,4 +21,6 @@
     "web_accessible_resources": [
       "content.js"
     ]
+    
   }
+  
