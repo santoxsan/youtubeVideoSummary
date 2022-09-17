@@ -14,10 +14,10 @@ const choosePrompt=(countryCode, isLongSummary, message)=>{
     throw new Error("Country code not supported")
 }
 
-exports.lambdaHandler = async ({isLongSummary, openaiAccesKey, message, countryCode}) => {
+exports.lambdaHandler = async ({isLongSummary, openaiAccessKey, message, countryCode}) => {
 
   const configuration = new Configuration({
-    apiKey: openaiAccesKey,
+    apiKey: openaiAccessKey,
   });
   const openai = new OpenAIApi(configuration);
 

@@ -67,6 +67,7 @@
         "Resource": "arn:aws:states:::sns:publish",
         "Parameters": {
           "Message.$": "$",
+          "Subject": "Your video summary",
           "TopicArn": "${SnsTopic}"
         },
         "Next": "Success",
