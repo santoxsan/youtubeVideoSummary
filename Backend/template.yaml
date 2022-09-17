@@ -45,8 +45,20 @@ Resources:
         SummarizeApi:
           Type: Api
           Properties:
+            RestApiId: !Ref ApiGatewayApi
             Path: /
             Method: POST
+            
+          
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
   StateMachineRole:
     Type: AWS::IAM::Role
     Properties:
@@ -73,7 +85,7 @@ Resources:
 Outputs:
   StateMachineApi:
     Description: "API Gateway endpoint URL for Prod stage for State Machine"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Value: !Sub "https://${ApiGatewayApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
     Export:
       Name: !Sub "${AWS::StackName}-StateMachineApi"
 
