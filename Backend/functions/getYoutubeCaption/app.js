@@ -10,3 +10,4 @@ export const lambdaHandler = async ({url, openaiAccessKey, isLongSummary}) => {
     const countryCode = firstSubtitles.code.match(/(es)/) ? 'es' : 'en';
     return { message:caption, openaiAccessKey, countryCode, isLongSummary}
 };
+    

@@ -1,6 +1,13 @@
+
+
 EjecutarAnalisis = async (isLongSummary) => {
+  if (localStorage.getItem('openaiAccessKey') == "sdasdas")
+  { 
+    console.log("CACACACACACACAJAJAJAJCJAJCJACJAJ")
+  }
+
  await fetch(
-    'https://5kqxnlooj7.execute-api.sa-east-1.amazonaws.com/Prod/',
+    'https://s7fy4iiz14.execute-api.sa-east-1.amazonaws.com/Prod/',
     {
       method: 'POST',
       headers: {
@@ -16,6 +23,8 @@ EjecutarAnalisis = async (isLongSummary) => {
 };
 setInterval((x) => {
     try {
+
+
      const selectShort = document.querySelectorAll(
         '#text.style-scope.ytd-button-renderer.style-default.size-default'
       )
@@ -23,9 +32,9 @@ setInterval((x) => {
             '#text.style-scope.ytd-button-renderer.style-default.size-default'
           );
           //Elimina el window del trial
-
         
           if (selectShort && selectShort.length > 2 ) {
+            document.querySelector("ytd-engagement-panel-section-list-renderer").remove()
             document.querySelector('#engagement-panel-scrim').remove()
             document.querySelector('#panels').remove()
 

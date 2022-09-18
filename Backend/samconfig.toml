@@ -1,0 +1,13 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "youtubevideosummary"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-krk4e6pqcvcj"
+s3_prefix = "youtubevideosummarya"
+region = "sa-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "Email=\"santiago.esmoris@gmail.com\""
+image_repositories = []
