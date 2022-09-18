@@ -1,13 +1,13 @@
 
 
 EjecutarAnalisis = async (isLongSummary) => {
-  if (localStorage.getItem('openaiAccessKey') == "sdasdas")
-  { 
-    console.log("CACACACACACACAJAJAJAJCJAJCJACJAJ")
+  const openaiAccessKey = localStorage.getItem('openaiAccessKey')
+  if (!openaiAccessKey){
+    alert('There is no OpenAI access key. Please set it in the options page.')
+    return;
   }
-
  await fetch(
-    'https://s7fy4iiz14.execute-api.sa-east-1.amazonaws.com/Prod/',
+    'https://tecmg2cpl5.execute-api.sa-east-1.amazonaws.com/Prod/',
     {
       method: 'POST',
       headers: {
@@ -15,7 +15,7 @@ EjecutarAnalisis = async (isLongSummary) => {
       },
       body:JSON.stringify({
         url: window.location.href,
-        openaiAccessKey:localStorage.getItem('openaiAccessKey'),
+        openaiAccessKey: openaiAccessKey,
         isLongSummary
       }) ,
     }
