@@ -14,5 +14,11 @@ function injectScript(file_path, tag) {
 }
 injectScript(chrome.extension.getURL('content.js'), 'body');
 
-
-
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+      const setKey = localStorage.setItem("openaiAccessKey",request.greeting)
+      console.log("🚀 ~ file: inject.js ~ line 19 ~ request", setKey)
+      if (setKey)
+        sendResponse({farewell: "Tranks"});
+    }
+  );

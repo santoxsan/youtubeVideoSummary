@@ -1,26 +1,28 @@
 {
-    "name":"YoutubeSummariser",
-    "manifest_version":2,
-    "version":"1.0",
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16":"./iconoderesumen.png",
-        "32":"./iconoderesumen.png",
-        "48":"./iconoderesumen.png",
-        "128":"./iconoderesumen.png"
-      }
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://www.youtube.com/*"],
-        "js": ["inject.js"],
-        "run_at": "document_end" 
-      }
-    ],
-    "web_accessible_resources": [
-      "content.js"
-    ]
-    
-  }
+  "name":"YoutubeSummariser",
+  "manifest_version":2,
+  "version":"1.0",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":"./iconoderesumen.png",
+      "32":"./iconoderesumen.png",
+      "48":"./iconoderesumen.png",
+      "128":"./iconoderesumen.png"
+    }
+  },
+  "externally_connectable": {
+    "matches": ["https://www.youtube.com/*"]
+},
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["inject.js"],
+      "run_at": "document_end" 
+    }
+  ],
+  "web_accessible_resources": [
+    "content.js"
+  ]
   
+}

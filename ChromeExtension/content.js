@@ -7,7 +7,7 @@ EjecutarAnalisis = async (isLongSummary) => {
     return;
   }
  await fetch(
-    'https://tecmg2cpl5.execute-api.sa-east-1.amazonaws.com/Prod/',
+    'https://s7fy4iiz14.execute-api.sa-east-1.amazonaws.com/Prod/',
     {
       method: 'POST',
       headers: {
@@ -21,6 +21,8 @@ EjecutarAnalisis = async (isLongSummary) => {
     }
   );
 };
+
+
 setInterval((x) => {
     try {
 

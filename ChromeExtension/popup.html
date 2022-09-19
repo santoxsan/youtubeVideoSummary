@@ -7,6 +7,7 @@
     <title>Youtube Video Summary</title>
     <link rel="stylesheet" type="text/css" href="./index.css" title="ltr">
     <link rel="stylesheet" type="text/css" href="./index-rtl.css" title="rtl" disabled="">
+    <script src="./insertKey.js"></script>
     <style></style>
     <style data-jss="" data-meta="MuiInputBase">
         .MuiInputBase-root {
@@ -570,18 +571,16 @@
                         <br>
                         <div>Insert your access key from OpenAI</div>
                         <form class="unlock-page__form">
-                            <div class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"><label
-                                    class="MuiFormLabel-root MuiInputLabel-root jss1 MuiInputLabel-formControl MuiInputLabel-animated"
-                                    data-shrink="false" for="password" id="password-label">Access Key Here!</label>
+                            <div class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth">
+                                
                                 <div
                                     class="MuiInputBase-root MuiInput-root MuiInput-underline jss3 MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl">
-                                    <input aria-invalid="false" autocomplete="current-password" id="password"
+                                    <input id="inputKey" aria-invalid="false" autocomplete="current-password" id="password" placeholder="Access Key Here!"
                                         type="password" dir="auto" class="MuiInputBase-input MuiInput-input" value="">
                                 </div>
                             </div>
-                        </form><button class="button btn--rounded btn-default"  variant="contained"
-                            role="button" tabindex="0"
-                            style="background-color: var(--color-primary-default); color: var(--color-primary-inverse); margin-top: 20px; height: 60px; font-weight: 400; box-shadow: none; border-radius: 100px;" onclick="()=>{if (localStorage.getItem(``)!= null)}">Insert</button>
+                        </form>
+                        <button class="button btn--rounded btn-default" id="button" variant="contained" style="background-color: var(--color-primary-default); color: var(--color-primary-inverse); margin-top: 20px; height: 60px; font-weight: 400; box-shadow: none; border-radius: 100px;">Insert</button>
                        
                         
                     </div>
