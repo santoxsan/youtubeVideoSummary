@@ -1,7 +1,8 @@
 
 
 EjecutarAnalisis = async (isLongSummary) => {
-  const openaiAccessKey = localStorage.getItem('openaiAccessKey')
+  const openaiAccessKey = localStorage.getItem('openaiAccessKey')    
+ 
   if (!openaiAccessKey){
     alert('There is no OpenAI access key. Please set it in the options page.')
     return;
