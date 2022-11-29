@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import {encode, decode} from 'gpt-3-encoder';
 
 export const getContext = async (url) => {
     const response = await fetch(`https://downsub.com/?url=${url}`, {
@@ -61,4 +62,19 @@ export const getCaption = async (id) => {
     const text = await response.text();
     console.log("🚀 ~ file: services.js ~ line 71 ~ getCaption= ~ text", text)
     return text;
+}
+
+export const countTokens = (text) => {
+  const encoded = encode(text)
+  return encoded.length;
+}
+
+export const removeCaracterUntilTokenCount = (text, tokenCount) => {
+  let currentTokenCount = 90000000;
+  let currentText = text;
+  while (currentTokenCount > tokenCount) {
+    currentText = currentText.slice(0, currentText.length - 10);
+    currentTokenCount = encode(currentText).length;
+  }
+  return currentText;
 }

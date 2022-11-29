@@ -8,6 +8,7 @@ Parameters:
 Globals:
   Function:
     Timeout: 30
+    MemorySize: 3008
     Architectures:
       - x86_64
 Resources:
